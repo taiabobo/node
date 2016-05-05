@@ -1,10 +1,4 @@
 ﻿var fs = require('fs');
-//fs.readdir(__dirname, function (err, files) {
-// console.log(files);
-
-//});
-//require('./example-1.js');
-//require('./example-2.js');
 fs.readdir(process.cwd(), function (err, files) {
     console.log(' ');
     if (!files.length) {
@@ -14,7 +8,7 @@ fs.readdir(process.cwd(), function (err, files) {
 
     console.log('Select which file or directory you want to see \n');
 
-    function files(i) {
+    function file(i) {
         var filename = files[i];
         fs.stat(__dirname + '/' + filename, function (err, stat) {
             if (stat.isDirectory()) {
@@ -33,8 +27,7 @@ fs.readdir(process.cwd(), function (err, files) {
                 file(i);
             }
 
-        });
-        file(0);
+        });        
     }
-
+file(0);
 });
